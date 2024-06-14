@@ -5,7 +5,7 @@ defmodule JswatchWeb.ClockManager do
     :gproc.reg({:p, :l, :ui_event})
     {_, now} = :calendar.local_time()
     time = Time.from_erl!(now)
-    alarm = Time.add(time, 10)
+    alarm = Time.add(time, 5)
     Process.send_after(self(), :working_working, 1000)
     {:ok, %{ui_pid: ui, time: time, alarm: alarm, st: Working}}
   end
